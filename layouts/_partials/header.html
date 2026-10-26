@@ -1,6 +1,4 @@
-<header class="workshop-header">
- <a href="{{ site.Home.RelPermalink }}" class="workshop-wordmark"><span class="registration-mark" aria-hidden="true">✳</span>{{ site.Title }}</a>
- <span class="header-description">{{ hugo.Data.panels.profile.eyebrow }}</span>
- <div class="mode-selector" role="group" aria-label="Color theme"><button type="button" data-theme-choice="light" aria-label="Use light mode" aria-pressed="true"><span class="finish-swatch light-finish" aria-hidden="true"></span>LIGHT</button><button type="button" data-theme-choice="dark" aria-label="Use dark mode" aria-pressed="false"><span class="finish-swatch dark-finish" aria-hidden="true"></span>DARK</button></div>
- {{ range site.Menus.main }}{{ if not .HasChildren }}<a href="{{ .URL | relURL }}" class="header-index"{{ if strings.HasPrefix .URL "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .Name }} ↗</a>{{ else }}<details class="menu-disclosure"><summary>{{ .Name }}</summary><nav aria-label="{{ .Name }}">{{ range .Children }}<a href="{{ .URL }}" target="_blank" rel="noopener noreferrer">{{ .Name }} ↗</a>{{ end }}</nav></details>{{ end }}{{ end }}
+<header class="plate-branding">
+  <a href="{{ site.Home.RelPermalink }}" class="plate-brand">{{ hugo.Data.panels.profile.brand | default site.Title }}</a>
+  <span class="plate-brand-description">{{ hugo.Data.panels.profile.eyebrow }}</span>
 </header>

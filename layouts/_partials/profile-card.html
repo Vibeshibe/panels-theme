@@ -1,0 +1,9 @@
+{{ $profile := hugo.Data.panels.profile }}
+<div class="profile-dossier{{ if $profile.quickLinks }} quick-links-panel{{ end }}">
+  {{ partial "bolts.html" . }}
+  <span class="panel-tab">{{ $profile.label | default "ABOUT THIS SPACE" }}</span>
+  <div class="profile-title"><span class="workshop-label">{{ $profile.eyebrow }}</span><h2>{{ $profile.title | default site.Title }}</h2>{{ if not $profile.quickLinks }}<span class="profile-handle">{{ $profile.handle }}</span>{{ end }}</div>
+  {{ with $profile.bio }}<p class="profile-description">{{ . }}</p>{{ end }}
+  {{ with $profile.quickLinks }}<nav class="quick-links" aria-label="Quick links">{{ range . }}<a href="{{ .url | relURL }}"{{ if strings.HasPrefix .url "http" }} target="_blank" rel="noopener noreferrer"{{ end }}><span><strong>{{ .name }}</strong>{{ with .description }}<small>{{ . }}</small>{{ end }}</span><b aria-hidden="true">↗</b></a>{{ end }}</nav>{{ end }}
+  {{ with $profile.status }}<div class="profile-status"><span aria-hidden="true"></span>{{ . }}</div>{{ end }}
+</div>

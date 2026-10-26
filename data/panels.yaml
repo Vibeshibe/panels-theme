@@ -5,6 +5,10 @@ profile:
   status: ALWAYS A WORK IN PROGRESS
   accent: true
   people: []
+  quickLinks: []
+console:
+  label: LOCAL FREQUENCY
+  ticker: STAY CURIOUS. MAKE SOMETHING. TAKE THE SCENIC ROUTE.
 hero:
   eyebrow: OBJECTS, IDEAS & EVERYDAY LIFE
   title: A shared frequency.

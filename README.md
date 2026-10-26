@@ -42,7 +42,32 @@ data/panels.yaml                   # profile, banner, labels and links
 
 Your site's `data/panels.yaml` overrides the theme defaults. Personal artwork, biographies, links, and posts belong in the consuming site. No shibabox identity or commissioned artwork is bundled with this theme.
 
-The `profile` block edits the sidebar card (`label`, `eyebrow`, `title`, `handle`, `bio`, `status`, `accent`) and banner `logo`. The `intro.label` field edits the first panel's small section label; `intro.title` edits its heading. Homepage paragraphs come from `content/_index.md`.
+The `profile` block edits the sidebar card (`label`, `eyebrow`, `title`, `handle`, `bio`, `status`, `accent`), banner `logo`, and `brand` wordmark beneath the logo (defaults to the site title). The `intro.label` field edits the first panel's small section label; `intro.title` edits its heading. Homepage paragraphs come from `content/_index.md`.
+
+### Console and quick links
+
+The appearance controls, flat main-menu links, and raised project/journal navigation keys live in the rail beneath the banner. Lamps, the knob and ventilation grilles are decorative hardware. The site identity sits below the logo; the LCD below it uses `console.label` and `console.ticker`.
+
+The message scrolls with JavaScript and has a pause/resume button. Hover or keyboard focus pauses it temporarily. Reduced-motion preferences and browsers without JavaScript receive the complete static message; the rail can grow to fit it. The message is exposed once to screen readers.
+
+Provide `profile.quickLinks` to turn the profile card into a links panel; omit it or use an empty list to keep the biography card. For example:
+
+```yaml
+profile:
+  brand: your.site
+  label: QUICK LINKS
+  title: Elsewhere, together.
+  bio: A few familiar places.
+  quickLinks:
+    - name: Community
+      url: https://example.org
+      description: Come say hello
+console:
+  label: LOCAL FREQUENCY
+  ticker: STAY CURIOUS. MAKE SOMETHING. TAKE THE SCENIC ROUTE.
+```
+
+External links use a new tab with `noopener noreferrer`. Main-menu destinations render as flat rail links; nested dropdown menus are not rendered.
 
 Example configuration:
 

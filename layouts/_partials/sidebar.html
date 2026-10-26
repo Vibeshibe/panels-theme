@@ -1,6 +1,6 @@
 {{ $profile := hugo.Data.panels.profile }}
 <aside class="profile-sidebar" aria-label="Profile and navigation">
- <div class="profile-dossier">{{ partial "bolts.html" . }}<span class="panel-tab">{{ $profile.label | default "ABOUT THIS SPACE" }}</span><div class="profile-title"><span class="workshop-label">{{ $profile.eyebrow }}</span><h2>{{ $profile.title | default site.Title }}</h2><span class="profile-handle">{{ $profile.handle }}</span></div><p class="profile-description">{{ $profile.bio }}</p><div class="profile-status"><span></span>{{ $profile.status }}</div></div>
+ {{ partial "profile-card.html" . }}
  <nav class="profile-nav" aria-label="Page sections">
  {{ range slice (dict "id" "about" "n" "01" "label" "Our little world") (dict "id" "projects" "n" "02" "label" "Things we make") (dict "id" "journal" "n" "03" "label" "Field notes") (dict "id" "gallery" "n" "04" "label" "Photo archive") }}<a href="{{ site.Home.RelPermalink }}#{{ .id }}" data-section="{{ .id }}"><span>{{ .n }}</span>{{ .label }}<b>↗</b></a>{{ end }}
  </nav>

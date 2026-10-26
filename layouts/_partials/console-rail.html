@@ -1,0 +1,24 @@
+{{ $console := hugo.Data.panels.console | default (dict) }}
+{{ $message := $console.ticker | default (printf "%s / STAY CURIOUS. MAKE SOMETHING. TAKE THE SCENIC ROUTE." site.Title) }}
+<div class="bottom-rail console-rail">
+  <div class="lcd-module" data-ticker>
+    <div class="lcd-topline"><span>{{ $console.label | default "LOCAL FREQUENCY" }}</span><button hidden type="button" class="ticker-toggle" data-ticker-toggle aria-label="Pause scrolling message" aria-pressed="false"><span aria-hidden="true">Ⅱ</span></button></div>
+    <div class="lcd-screen"><span class="screen-reader-only">{{ $message }}</span><div class="lcd-track" aria-hidden="true"><span>{{ $message }}</span><span>{{ $message }}</span></div></div>
+    <div class="lcd-bottomline" aria-hidden="true"><span>RX / TX</span><span>▰ ▰ ▰ ▱</span></div>
+  </div>
+  <div class="console-deck">
+    <div class="console-hardware" aria-hidden="true">
+      <div class="lamp-pair"><span class="hardware-lamp lamp-green"></span><span class="hardware-lamp lamp-red"></span></div>
+      <div class="knob-mount"><span class="volume-knob"></span><span class="knob-label">VOL</span></div>
+      <div class="console-vents"><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+    <div class="deck-grille" aria-hidden="true"><i></i><i></i><i></i></div>
+    <nav class="rail-navigation armature-navigation" aria-label="Explore the site">
+      <a href="{{ site.Home.RelPermalink }}#projects"><span class="key-number">01</span><span class="key-label">MAKE SOMETHING</span><b aria-hidden="true">↗</b></a>
+      <a href="{{ "/posts/" | relURL }}"><span class="key-number">02</span><span class="key-label">FIELD NOTES</span><b aria-hidden="true">↗</b></a>
+    </nav>
+    {{ partial "appearance-control.html" . }}
+    {{ with site.Menus.main }}<nav class="rail-utilities" aria-label="Other destinations">{{ range . }}{{ if and .URL (not .HasChildren) }}<a href="{{ .URL | relURL }}"{{ if strings.HasPrefix .URL "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .Name }} <span aria-hidden="true">↗</span></a>{{ end }}{{ end }}</nav>{{ end }}
+  </div>
+  <span class="rail-bolt mounting-bolt" aria-hidden="true"></span><span class="rail-bolt rail-bolt-end mounting-bolt" aria-hidden="true"></span>
+</div>

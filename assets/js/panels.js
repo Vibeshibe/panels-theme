@@ -1,4 +1,17 @@
 (() => {
+  document.querySelectorAll('[data-ticker]').forEach(module => {
+    const toggle=module.querySelector('[data-ticker-toggle]');
+    const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updateMotion=()=>{module.classList.toggle('is-scrolling',!reducedMotion.matches);toggle.hidden=reducedMotion.matches;};
+    updateMotion();reducedMotion.addEventListener('change',updateMotion);
+    toggle.addEventListener('click',()=>{
+      const paused=module.classList.toggle('is-paused');
+      toggle.setAttribute('aria-pressed',String(paused));
+      toggle.setAttribute('aria-label',paused?'Resume scrolling message':'Pause scrolling message');
+      toggle.firstElementChild.textContent=paused?'▶':'Ⅱ';
+    });
+  });
+
   document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => {
     const group=button.closest('section');
     group.querySelectorAll('[data-filter]').forEach(item=>{item.classList.toggle('active',item===button);item.setAttribute('aria-pressed',String(item===button));});

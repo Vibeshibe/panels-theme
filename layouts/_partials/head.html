@@ -7,7 +7,7 @@
 {{ with site.Params.favicon }}<link rel="icon" href="{{ . | relURL }}"{{ if strings.HasSuffix (lower .) ".svg" }} type="image/svg+xml"{{ end }}>{{ else }}{{ with resources.Get "images/mark.svg" | fingerprint }}<link rel="icon" type="image/svg+xml" href="{{ .RelPermalink }}">{{ end }}{{ end }}
 {{ $theme := resources.Get "js/theme.js" | minify | fingerprint }}
 <script src="{{ $theme.RelPermalink }}" integrity="{{ $theme.Data.Integrity }}"></script>
-{{ $styles := slice "css/reset.css" "css/foundation.css" "css/panels.css" "css/readability.css" "css/chassis.css" "css/dark.css" "css/accent.css" "css/content.css" }}
+{{ $styles := slice "css/reset.css" "css/foundation.css" "css/panels.css" "css/readability.css" "css/chassis.css" "css/dark.css" "css/accent.css" "css/content.css" "css/console.css" }}
 {{ $resources := slice }}{{ range $styles }}{{ $resources = $resources | append (resources.Get .) }}{{ end }}
 {{ $css := $resources | resources.Concat "css/panels.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
