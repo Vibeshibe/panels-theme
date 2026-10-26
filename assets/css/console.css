@@ -67,7 +67,7 @@
   min-height: 112px;
   padding: 17px 21px 18px;
   display: grid;
-  grid-template-columns: 76px minmax(105px,1fr) auto auto auto;
+  grid-template-columns: 76px minmax(105px,1fr) auto auto;
   align-items: center;
   gap: 16px;
 }
@@ -115,8 +115,14 @@
 .panels .armature-navigation>a>b { font-size:15px; font-weight:400; margin:0; color:inherit; }
 .panels .armature-navigation>a:hover { background:linear-gradient(#ffe6c3,#efbd83); color:#6b472b; border-color:#af8152; }
 .panels .armature-navigation>a:active { transform:translateY(2px); border-bottom-width:2px; padding-top:12px; box-shadow:inset 0 1px 2px #4e65492b; }
-.panels .console-deck .mode-selector { margin:0; gap:3px; padding:4px; clip-path:none; border-radius:3px; }
-.panels .console-deck .mode-selector>button { font-size:9px; min-height:36px; padding:0 8px; gap:5px; letter-spacing:.2px; }
+.console-deck.has-utility-links { grid-template-columns:76px minmax(105px,1fr) auto auto auto; }
+.power-control { display:grid; justify-items:center; gap:7px; min-width:66px; padding:8px 9px 7px; background:linear-gradient(135deg,#d3ddc6,#b5c4a5); border:1px solid #93a680; border-radius:3px; box-shadow:inset 0 1px 0 #f3f8e9,0 2px 0 #91a17f; }
+.power-button { position:relative; display:grid; place-items:center; width:48px; height:48px; padding:0; border:2px solid #8b9e78; border-radius:50%; background:linear-gradient(145deg,#eef2e5,#b8c7a6); color:#45622f; box-shadow:inset 0 1px 1px #fff,0 3px 0 #82936f,0 4px 5px #485c3b40; transition:transform .12s,box-shadow .12s; }
+.power-button:before { content:''; position:absolute; inset:4px; border:2px solid #8eae5b; border-radius:50%; box-shadow:0 0 5px #9dc96c77,inset 0 0 3px #c6ec9877; }
+.power-button>svg { position:relative; width:24px; height:24px; filter:drop-shadow(0 0 2px #badc8b77); }
+.power-button:hover { background:linear-gradient(145deg,#fbf8e8,#cfdbb7); }
+.power-button:active { transform:translateY(2px); box-shadow:inset 0 1px 3px #52684255,0 1px 0 #82936f; }
+.power-state { font:9px/1 'DM Mono',monospace; letter-spacing:1px; color:#516740; }
 .rail-utilities { display:flex; flex-wrap:wrap; gap:5px; }
 .rail-utilities>a { display:flex; align-items:center; gap:5px; font:10px/1.4 'DM Mono',monospace; min-height:38px; color:#4b653c; }
 .rail-utilities>a:hover { color:#9d542d; }
@@ -166,22 +172,30 @@ html[data-theme="dark"] .panels .armature-navigation>a { background:linear-gradi
 html[data-theme="dark"] .panels .armature-navigation>a>.key-number { color:#c2cfb3; }
 html[data-theme="dark"] .panels .armature-navigation>a:hover { background:linear-gradient(#c89b65,#9c713e); color:#fff4e6; border-color:#dfb579; }
 html[data-theme="dark"] .rail-utilities>a { color:#c3d1b0; }
+html[data-theme="dark"] .power-control { background:linear-gradient(135deg,#4a5342,#333f2c); border-color:#626f53; box-shadow:inset 0 1px 0 #879277,0 2px 0 #1f2a18; }
+html[data-theme="dark"] .power-button { background:linear-gradient(145deg,#606e51,#3d4a30); color:#a8b59b; border-color:#667957; box-shadow:inset 0 1px 1px #9ba98d,0 3px 0 #202e17,0 4px 5px #0005; }
+html[data-theme="dark"] .power-button:before { border-color:#738565; box-shadow:inset 0 1px 3px #1b291650; }
+html[data-theme="dark"] .power-button>svg { filter:none; }
+html[data-theme="dark"] .power-button:hover { background:linear-gradient(145deg,#738360,#4d5b3e); color:#e3edda; }
+html[data-theme="dark"] .power-state { color:#c0ccb3; }
 html[data-theme="dark"] .panels .interest-strip, html[data-theme="dark"] .panels .section-rule .workshop-label, html[data-theme="dark"] .panels .section-rule .rule-end, html[data-theme="dark"] .panels .object-copy>.workshop-label, html[data-theme="dark"] .panels .field-notes .workshop-label { color:#bac9ab; }
 html[data-theme="dark"] .panels .interest-strip>i, html[data-theme="dark"] .panels .object-id { color:#acbc9b; }
 
 @media(max-width:1200px) {
-  .console-deck { gap:10px; padding-left:15px; padding-right:15px; grid-template-columns:64px minmax(85px,1fr) auto auto auto; }
+  .console-deck { gap:10px; padding-left:15px; padding-right:15px; grid-template-columns:64px minmax(85px,1fr) auto auto; }
+  .console-deck.has-utility-links { grid-template-columns:64px minmax(85px,1fr) auto auto auto; }
   .panels .armature-navigation>a { padding-left:8px; padding-right:8px; gap:5px; }
   .panels .armature-navigation>a>.key-label { font-size:12px; }
   .panels .armature-navigation>a>.key-number { display:none; }
 }
 @media(max-width:1050px) {
-  .console-deck { min-height:154px; grid-template-columns:64px minmax(0,1fr) auto; gap:10px 15px; padding:14px 18px; }
+  .console-deck, .console-deck.has-utility-links { min-height:154px; grid-template-columns:64px minmax(0,1fr) auto; gap:10px 15px; padding:14px 18px; }
   .console-hardware { grid-column:1; grid-row:1/3; }
   .deck-grille { grid-column:2; grid-row:1; }
   .rail-utilities { grid-column:3; grid-row:1; justify-self:end; }
   .panels .armature-navigation { grid-column:2; grid-row:2; }
-  .panels .console-deck .mode-selector { grid-column:3; grid-row:2; }
+  .power-control { grid-column:3; grid-row:1/3; }
+  .has-utility-links .power-control { grid-row:2; }
   .panels .armature-navigation>a { min-height:42px; }
   .lcd-module { padding-left:13px; padding-right:13px; }
 }
@@ -204,13 +218,12 @@ html[data-theme="dark"] .panels .interest-strip>i, html[data-theme="dark"] .pane
   .plate-brand-description { display:none; }
   .identity-panel .logo-cassette { height:121px; min-height:121px; flex-shrink:0; margin-top:16px; }
   .deck-grille { display:none; }
-  .panels .armature-navigation { grid-column:1/-1; grid-row:2; padding:7px; gap:8px; }
+  .panels .armature-navigation { grid-column:1/-1; grid-row:2; padding:7px; gap:8px; margin-right:75px; align-self:center; }
   .panels .armature-navigation>a, .panels .armature-navigation>a:first-child { min-height:47px; padding:10px 8px; }
   .panels .armature-navigation>a>.key-label { font-size:14px; }
-  .panels .armature-navigation>a>.key-number { display:block; }
-  .panels .console-deck .mode-selector { grid-column:1/-1; grid-row:3; justify-self:start; }
-  .panels .console-deck .mode-selector>button { min-height:35px; font-size:9px; padding:0 10px; }
-  .rail-utilities { grid-column:2; grid-row:3; font-size:10px; }
+  .panels .armature-navigation>a>.key-number { display:none; }
+  .power-control, .has-utility-links .power-control { grid-column:2; grid-row:2; justify-self:end; }
+  .rail-utilities { grid-column:1/-1; grid-row:3; font-size:10px; }
   .panels .interest-strip { display:grid; grid-template-columns:1fr 1fr; font-size:10px; gap:12px; }
   .panels .interest-strip>i { display:none; }
   .panels .section-rule .workshop-label, .panels .section-rule .rule-end { font-size:9px; }
@@ -236,8 +249,7 @@ html[data-theme="dark"] .panels .interest-strip>i, html[data-theme="dark"] .pane
   .plate-brand { font-size:16px; }
   .identity-panel .logo-cassette { height:112px; min-height:112px; margin-top:14px; }
   .panels .armature-navigation>a>.key-label { font-size:12px; }
-  .panels .armature-navigation>a>.key-number { font-size:7px; }
-  .panels .console-deck .mode-selector>button { padding:0 8px; font-size:8px; }
+  .panels .armature-navigation>a>b { display:none; }
   .panels .quick-links-panel { padding-left:16px; padding-right:16px; }
   .quick-links strong { font-size:19px; }
   .quick-links small { font-size:9px; }

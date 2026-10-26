@@ -6,7 +6,7 @@
     <div class="lcd-screen"><span class="screen-reader-only">{{ $message }}</span><div class="lcd-track" aria-hidden="true"><span>{{ $message }}</span><span>{{ $message }}</span></div></div>
     <div class="lcd-bottomline" aria-hidden="true"><span>RX / TX</span><span>▰ ▰ ▰ ▱</span></div>
   </div>
-  <div class="console-deck">
+  <div class="console-deck{{ if site.Menus.main }} has-utility-links{{ end }}">
     <div class="console-hardware" aria-hidden="true">
       <div class="lamp-pair"><span class="hardware-lamp lamp-green"></span><span class="hardware-lamp lamp-red"></span></div>
       <div class="knob-mount"><span class="volume-knob"></span><span class="knob-label">VOL</span></div>

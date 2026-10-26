@@ -29,23 +29,34 @@
     document.querySelectorAll('[data-theme-choice]').forEach(button => {
       button.setAttribute('aria-pressed', String(button.dataset.themeChoice === theme));
     });
+    document.querySelectorAll('[data-theme-toggle]').forEach(button => {
+      button.setAttribute('aria-pressed', String(theme === 'light'));
+      button.title = theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
+      const control = button.closest('[data-power-control]');
+      control.hidden = false;
+      control.querySelector('[data-theme-state]').textContent = theme.toUpperCase();
+    });
+  }
+
+  function choose(theme) {
+    followsSystem = false;
+    apply(theme);
+    try { localStorage.setItem(key, theme); } catch { /* The current selection still works for this visit. */ }
+    const url = new URL(window.location.href);
+    if (url.searchParams.has('theme')) {
+      url.searchParams.set('theme', theme);
+      history.replaceState(history.state, '', url);
+    }
   }
 
   apply(selected);
   document.addEventListener('DOMContentLoaded', () => {
     apply(selected);
     document.querySelectorAll('[data-theme-choice]').forEach(button => {
-      button.addEventListener('click', () => {
-        followsSystem = false;
-        const theme = button.dataset.themeChoice;
-        apply(theme);
-        try { localStorage.setItem(key, theme); } catch { /* The current selection still works for this visit. */ }
-        const url = new URL(window.location.href);
-        if (url.searchParams.has('theme')) {
-          url.searchParams.set('theme', theme);
-          history.replaceState(history.state, '', url);
-        }
-      });
+      button.addEventListener('click', () => choose(button.dataset.themeChoice));
+    });
+    document.querySelectorAll('[data-theme-toggle]').forEach(button => {
+      button.addEventListener('click', () => choose(selected === 'light' ? 'dark' : 'light'));
     });
   });
   preference.addEventListener('change', event => {

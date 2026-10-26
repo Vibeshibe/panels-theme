@@ -48,6 +48,8 @@ The `profile` block edits the sidebar card (`label`, `eyebrow`, `title`, `handle
 
 The appearance controls, flat main-menu links, and raised project/journal navigation keys live in the rail beneath the banner. Lamps, the knob and ventilation grilles are decorative hardware. The site identity sits below the logo; the LCD below it uses `console.label` and `console.ticker`.
 
+Appearance is controlled by a single power-style button: illuminated means light mode, unlit means dark mode. Its visible label shows the current appearance, its tooltip describes the next action, and the native toggle button works with keyboard input. The existing saved preference, system appearance and `?theme=` links still apply. The control is hidden when JavaScript is unavailable.
+
 The message scrolls with JavaScript and has a pause/resume button. Hover or keyboard focus pauses it temporarily. Reduced-motion preferences and browsers without JavaScript receive the complete static message; the rail can grow to fit it. The message is exposed once to screen readers.
 
 Provide `profile.quickLinks` to turn the profile card into a links panel; omit it or use an empty list to keep the biography card. For example:
