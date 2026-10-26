@@ -1,0 +1,34 @@
+{{ $console := hugo.Data.panels.console | default (dict) }}
+{{ $count := 4 }}
+{{ if isset $console "socketCount" }}{{ $count = int $console.socketCount }}{{ end }}
+{{ $buttons := $console.buttons | default (slice) }}
+{{ if or (lt $count 2) (gt $count 4) }}{{ errorf "console.socketCount must be 2, 3, or 4; received %d" $count }}{{ end }}
+{{ if gt (len $buttons) $count }}{{ errorf "console.buttons has %d entries but only %d sockets are configured" (len $buttons) $count }}{{ end }}
+<nav class="rail-navigation armature-navigation header-sockets" aria-label="Header navigation" data-socket-count="{{ $count }}" style="--socket-count:{{ $count }}"{{ if not $buttons }} aria-hidden="true"{{ end }}>
+  {{ range $slot := seq $count -1 1 }}
+    {{ if le $slot (len $buttons) }}
+      {{ $button := index $buttons (sub $slot 1) }}
+      {{ $name := $button.name | default "" | strings.TrimSpace }}
+      {{ if not $name }}{{ errorf "console.buttons entry %d requires a name" $slot }}{{ end }}
+      <div class="header-socket" data-socket-position="{{ $slot }}">
+        {{ if $button.children }}
+          {{ if $button.url }}{{ errorf "console.buttons entry %q must use either url or children, not both" $name }}{{ end }}
+          <details class="socket-dropdown" data-header-dropdown>
+            <summary class="socket-key"><span class="socket-label">{{ $name }}</span><span class="socket-indicator" aria-hidden="true">⌄</span></summary>
+            <div class="socket-dropdown-panel" id="header-socket-menu-{{ $slot }}">
+              {{ range $child := $button.children }}
+                {{ if or (not $child.name) (not $child.url) }}{{ errorf "Dropdown %q requires a name and url for each child" $name }}{{ end }}
+                <a href="{{ $child.url | relURL }}"{{ if strings.HasPrefix $child.url "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ $child.name }}<span aria-hidden="true">↗</span></a>
+              {{ end }}
+            </div>
+          </details>
+        {{ else }}
+          {{ if not $button.url }}{{ errorf "console.buttons entry %q requires url or children" $name }}{{ end }}
+          <a class="socket-key" href="{{ $button.url | relURL }}"{{ if strings.HasPrefix $button.url "http" }} target="_blank" rel="noopener noreferrer"{{ end }}><span class="socket-label">{{ $name }}</span><span class="socket-indicator" aria-hidden="true">↗</span></a>
+        {{ end }}
+      </div>
+    {{ else }}
+      <div class="header-socket" data-socket-position="{{ $slot }}" aria-hidden="true"><span class="socket-blank"><span class="socket-contacts">{{ range seq 8 }}<i></i>{{ end }}</span></span></div>
+    {{ end }}
+  {{ end }}
+</nav>

@@ -13,10 +13,7 @@
       <div class="console-vents"><i></i><i></i><i></i><i></i><i></i></div>
     </div>
     <div class="deck-grille" aria-hidden="true"><i></i><i></i><i></i></div>
-    <nav class="rail-navigation armature-navigation" aria-label="Explore the site">
-      <a href="{{ site.Home.RelPermalink }}#projects"><span class="key-number">01</span><span class="key-label">MAKE SOMETHING</span><b aria-hidden="true">↗</b></a>
-      <a href="{{ "/posts/" | relURL }}"><span class="key-number">02</span><span class="key-label">FIELD NOTES</span><b aria-hidden="true">↗</b></a>
-    </nav>
+    {{ partial "header-sockets.html" . }}
     {{ partial "appearance-control.html" . }}
     {{ with site.Menus.main }}<nav class="rail-utilities" aria-label="Other destinations">{{ range . }}{{ if and .URL (not .HasChildren) }}<a href="{{ .URL | relURL }}"{{ if strings.HasPrefix .URL "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .Name }} <span aria-hidden="true">↗</span></a>{{ end }}{{ end }}</nav>{{ end }}
   </div>

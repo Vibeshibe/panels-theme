@@ -46,7 +46,7 @@ The `profile` block edits the sidebar card (`label`, `eyebrow`, `title`, `handle
 
 ### Console and quick links
 
-The appearance controls, flat main-menu links, and raised project/journal navigation keys live in the rail beneath the banner. Lamps, the knob and ventilation grilles are decorative hardware. The site identity sits below the logo; the LCD below it uses `console.label` and `console.ticker`.
+The appearance controls, optional header keys and flat main-menu links live in the rail beneath the banner. Lamps, the knob and ventilation grilles are decorative hardware. The site identity sits below the logo; the LCD below it uses `console.label` and `console.ticker`.
 
 Appearance is controlled by a single power-style button: illuminated means light mode, unlit means dark mode. Its visible label shows the current appearance, its tooltip describes the next action, and the native toggle button works with keyboard input. The existing saved preference, system appearance and `?theme=` links still apply. The control is hidden when JavaScript is unavailable.
 
@@ -70,6 +70,32 @@ console:
 ```
 
 External links use a new tab with `noopener noreferrer`. Main-menu destinations render as flat rail links; nested dropdown menus are not rendered.
+
+### Optional header keys and empty sockets
+
+The header has two to four sockets, configured with `console.socketCount` (default `4`). `console.buttons` defaults to `[]`, leaving every socket empty. Empty sockets are decorative and do not receive keyboard focus.
+
+Buttons are listed **from right to left**: the first entry occupies the rightmost socket, the next fills the socket to its left. Unused positions remain recessed sockets. On narrow screens, banks wrap into two columns; filling starts at the bottom right and continues left, then onto the row above.
+
+Each entry uses `name` with either `url` for a direct link or `children` for a dropdown. Dropdown children need `name` and `url`; one level is supported. For example:
+
+```yaml
+console:
+  socketCount: 4
+  buttons:
+    - name: Field notes
+      url: /posts/
+    - name: Projects
+      children:
+        - name: All projects
+          url: /projects/
+        - name: Workbench
+          url: /projects/workbench/
+```
+
+Use `buttons: []` for an all-empty bank, or remove individual entries to free their positions. Builds fail for socket counts outside 2–4, too many buttons, or missing names/destinations, so a key is never silently dropped.
+
+Dropdowns use native disclosures. With JavaScript and Popover API support, their panels open above the page so the chassis cannot clip them. Without that support, they expand inside the rail and the chassis grows. Enter/Space activate the disclosure, arrow keys on its trigger focus the first/last link, Tab follows the links, and Escape closes it and restores focus. Clicking or moving focus outside closes the enhanced menu.
 
 Example configuration:
 
