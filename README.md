@@ -42,6 +42,8 @@ data/panels.yaml                   # profile, banner, labels and links
 
 Your site's `data/panels.yaml` overrides the theme defaults. Personal artwork, biographies, links, and posts belong in the consuming site. No shibabox identity or commissioned artwork is bundled with this theme.
 
+The `profile` block edits the sidebar card (`label`, `eyebrow`, `title`, `handle`, `bio`, `status`, `accent`) and banner `logo`. The `intro.label` field edits the first panel's small section label; `intro.title` edits its heading. Homepage paragraphs come from `content/_index.md`.
+
 Example configuration:
 
 ```yaml
@@ -67,6 +69,8 @@ Project front matter supports `title`, `description`, `date`, `draft`, `weight`,
 Album front matter supports `cover` and `coverAlt`. Article front matter supports `author`, `tags`, `description`, and `toc`. Hugo handles the publication date and draft state.
 
 ## Authoring components
+
+See [the Blowfish shortcode review](docs/BLOWFISH-SHORTCODES.md) for the exact supported subset, useful candidates, and dependencies that require an adapter. Retaining the Blowfish submodule in a consuming site does not activate its shortcodes.
 
 ### Callouts
 

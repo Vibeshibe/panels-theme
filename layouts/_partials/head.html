@@ -4,7 +4,7 @@
 <meta name="description" content="{{ .Description | default site.Params.description | default site.Title }}">
 <link rel="canonical" href="{{ .Permalink }}">
 {{ with .OutputFormats.Get "RSS" }}<link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .RelPermalink }}">{{ end }}
-{{ with site.Params.favicon }}<link rel="icon" href="{{ . | relURL }}">{{ else }}{{ with resources.Get "images/mark.svg" | fingerprint }}<link rel="icon" type="image/svg+xml" href="{{ .RelPermalink }}">{{ end }}{{ end }}
+{{ with site.Params.favicon }}<link rel="icon" href="{{ . | relURL }}"{{ if strings.HasSuffix (lower .) ".svg" }} type="image/svg+xml"{{ end }}>{{ else }}{{ with resources.Get "images/mark.svg" | fingerprint }}<link rel="icon" type="image/svg+xml" href="{{ .RelPermalink }}">{{ end }}{{ end }}
 {{ $theme := resources.Get "js/theme.js" | minify | fingerprint }}
 <script src="{{ $theme.RelPermalink }}" integrity="{{ $theme.Data.Integrity }}"></script>
 {{ $styles := slice "css/reset.css" "css/foundation.css" "css/panels.css" "css/readability.css" "css/chassis.css" "css/dark.css" "css/accent.css" "css/content.css" }}
