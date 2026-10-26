@@ -202,15 +202,17 @@ html[data-theme="dark"] .panels .interest-strip>i, html[data-theme="dark"] .pane
 @media(max-width:650px) {
   .panels .workshop-shell { padding-top:14px; }
   .panels .banner-assembly { --rail:auto; }
-  .panels .console-rail { padding:0 12px 18px; grid-template-columns:var(--spine) minmax(0,1fr); gap:12px 10px; }
+  .panels .console-rail { padding:12px; grid-template-columns:minmax(0,1fr) auto; gap:12px; }
   .console-deck { display:contents; }
-  .lcd-module { grid-column:1; grid-row:1; padding:9px 0 0; border:0; box-shadow:none; }
-  .lcd-topline { font-size:7px; gap:3px; }
-  .lcd-module .ticker-toggle { flex-basis:20px; width:20px; height:22px; }
-  .lcd-screen { min-height:35px; border-width:2px; }
+  .lcd-module { grid-column:1/-1; grid-row:1; display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:8px; padding:0; border:0; box-shadow:none; }
+  .lcd-topline { display:contents; }
+  .lcd-topline>span { display:none; }
+  .panels .lcd-module .ticker-toggle { grid-column:2; grid-row:1; width:44px; height:44px; font-size:16px; }
+  .lcd-screen { grid-column:1; grid-row:1; min-height:44px; border-width:2px; }
+  .lcd-module:not(.is-scrolling) .lcd-screen { grid-column:1/-1; }
   .lcd-track { font-size:10px; letter-spacing:.6px; }
-  .lcd-bottomline { font-size:6px; }
-  .console-hardware { grid-column:2; grid-row:1; display:flex; gap:16px; padding-top:8px; }
+  .lcd-bottomline { display:none; }
+  .console-hardware { grid-column:1; grid-row:2; display:flex; align-items:center; justify-content:flex-start; gap:16px; padding:0 4px; }
   .console-vents { gap:4px; margin-left:3px; }
   .console-vents>i { height:23px; }
   .plate-branding { min-height:25px; padding-top:4px; gap:0; }
@@ -218,12 +220,13 @@ html[data-theme="dark"] .panels .interest-strip>i, html[data-theme="dark"] .pane
   .plate-brand-description { display:none; }
   .identity-panel .logo-cassette { height:121px; min-height:121px; flex-shrink:0; margin-top:16px; }
   .deck-grille { display:none; }
-  .panels .armature-navigation { grid-column:1/-1; grid-row:2; padding:7px; gap:8px; margin-right:75px; align-self:center; }
+  .panels .armature-navigation { grid-column:1/-1; grid-row:3; padding:7px; gap:8px; margin:0; align-self:center; }
   .panels .armature-navigation>a, .panels .armature-navigation>a:first-child { min-height:47px; padding:10px 8px; }
   .panels .armature-navigation>a>.key-label { font-size:14px; }
   .panels .armature-navigation>a>.key-number { display:none; }
-  .power-control, .has-utility-links .power-control { grid-column:2; grid-row:2; justify-self:end; }
-  .rail-utilities { grid-column:1/-1; grid-row:3; font-size:10px; }
+  .power-control, .has-utility-links .power-control { grid-column:2; grid-row:2; justify-self:end; display:flex; align-items:center; gap:8px; min-width:0; padding:7px; }
+  .power-button { width:44px; height:44px; }
+  .rail-utilities { grid-column:1/-1; grid-row:4; font-size:10px; }
   .panels .interest-strip { display:grid; grid-template-columns:1fr 1fr; font-size:10px; gap:12px; }
   .panels .interest-strip>i { display:none; }
   .panels .section-rule .workshop-label, .panels .section-rule .rule-end { font-size:9px; }

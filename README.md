@@ -77,6 +77,8 @@ The header has two to four sockets, configured with `console.socketCount` (defau
 
 Buttons are listed **from right to left**: the first entry occupies the rightmost socket, the next fills the socket to its left. Unused positions remain recessed sockets. On narrow screens, banks wrap into two columns; filling starts at the bottom right and continues left, then onto the row above.
 
+On phones, the LCD spans the full rail width, followed by a compact hardware/power row and the socket bank. Its duplicate caption and RX/TX engraving are omitted in that layout. Empty sockets use shallower recesses to save vertical space; active keys retain large tap areas and readable labels.
+
 Each entry uses `name` with either `url` for a direct link or `children` for a dropdown. Dropdown children need `name` and `url`; one level is supported. For example:
 
 ```yaml

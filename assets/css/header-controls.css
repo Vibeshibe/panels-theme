@@ -79,6 +79,7 @@ html[data-theme="dark"] .socket-dropdown-panel>a:hover { background:#9b7449; col
 @media(max-width:650px) {
   .panels .header-sockets { gap:8px; padding:7px; }
   .socket-label { font-size:14px; }
-  .socket-key { padding-left:6px; padding-right:6px; gap:4px; }
+  .socket-key { min-height:56px; padding-left:6px; padding-right:6px; gap:4px; }
+  .socket-blank { min-height:40px; }
   .socket-indicator { font-size:14px; }
 }
