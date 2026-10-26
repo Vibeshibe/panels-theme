@@ -152,6 +152,8 @@ The theme follows the system appearance, supports explicit light/dark links usin
 
 CSS is organized into foundation, panel structure, materials, accent, and content layers. Hugo concatenates, minifies, and fingerprints assets. Site data controls identity and content; component CSS owns the geometry.
 
+The final `readability.css` layer owns the type scale across breakpoints: 16px body and article text, 14px summaries and controls, and a 12px minimum for labels and metadata. Phone layouts wrap or stack content instead of shrinking those sizes. Redundant tiny engravings are hidden where the plate has insufficient room. Maintain this layer last in the CSS bundle so older framing rules cannot reduce reading sizes.
+
 ## Development and updates
 
 For a site and theme checked out next to each other, run the site with `hugo server --themesDir ..` to use the editable sibling theme. Production builds use the site's pinned submodule.
