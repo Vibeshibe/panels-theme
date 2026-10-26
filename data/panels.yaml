@@ -1,0 +1,22 @@
+profile:
+  eyebrow: A PERSONAL SPACE. SHARED.
+  handle: INDEPENDENT & ENDLESSLY CURIOUS
+  bio: A place for things you make, keep, and care about.
+  status: ALWAYS A WORK IN PROGRESS
+  accent: true
+  people: []
+hero:
+  eyebrow: OBJECTS, IDEAS & EVERYDAY LIFE
+  title: A shared frequency.
+  caption: A PLACE TO CALL /HOME
+intro:
+  title: Small ideas. Made into things.
+  body:
+    - A personal space for your writing, projects, and photographs.
+  note: [Stay curious., Make things., Take the scenic route.]
+interests: [ART, PHOTOGRAPHY, MAKING, CODE]
+sections:
+  projects: A work in progress.
+  posts: Occasionally, we write.
+  gallery: Collected, not curated.
+footer: Made with care. Kept with love.

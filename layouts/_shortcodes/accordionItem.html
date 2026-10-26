@@ -1,0 +1,1 @@
+<details class="content-disclosure"{{ if .Get "open" }} open{{ end }}><summary>{{ .Get "title" | default (.Get "header") }}</summary><div>{{ .Page.RenderString (dict "display" "block") .Inner }}</div></details>

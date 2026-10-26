@@ -1,0 +1,2 @@
+{{ $image := partial "resolve-image.html" (dict "page" .Page "path" .Destination) }}
+<figure class="content-figure"><a href="{{ $image.src }}" data-lightbox data-caption="{{ .Title | default (.Text | plainify) }}"><img src="{{ $image.src }}" alt="{{ .Text | plainify }}"{{ if $image.width }} width="{{ $image.width }}" height="{{ $image.height }}"{{ end }} loading="lazy" decoding="async"></a>{{ with .Title }}<figcaption>{{ . }}</figcaption>{{ end }}</figure>

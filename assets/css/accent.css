@@ -1,0 +1,22 @@
+/* One warm, powder-coated identity plate in either material theme. */
+html[data-theme] .panels.accent-profile .profile-dossier{
+ background:radial-gradient(#79320f14 .5px,transparent .5px),linear-gradient(135deg,#fb7631,#f36523 55%,#ee5f21);
+ background-size:3px 3px,100% 100%;
+ border-color:#b74b1c;
+ box-shadow:inset 0 0 0 3px #ff9350,inset 0 5px 0 #ffad6a,0 3px 0 #b64a1d;
+}
+html[data-theme] .panels.accent-profile .profile-dossier .panel-tab{background:#493326;color:#ffe8ca}
+html[data-theme] .panels.accent-profile .profile-dossier .profile-title h2{color:#2c261e}
+html[data-theme] .panels.accent-profile .profile-dossier .profile-title h2>span{color:#603722}
+html[data-theme] .panels.accent-profile .profile-dossier .profile-title>.workshop-label,
+html[data-theme] .panels.accent-profile .profile-dossier .profile-handle{color:#4c2d1c}
+html[data-theme] .panels.accent-profile .profile-dossier .profile-description{color:#302219}
+html[data-theme] .panels.accent-profile .profile-dossier .profile-status{color:#4c2b19;border-color:#bf4e1b}
+html[data-theme] .panels.accent-profile .profile-dossier .profile-status>span{background:#40372b}
+html[data-theme] .panels.accent-profile .profile-dossier .mounting-bolt{
+ background:radial-gradient(circle at 30% 25%,#ffbf87 0,#e99b5c 28%,#b56b38 65%,#7e421e 100%);
+ border-color:#8d491f;
+ box-shadow:inset 0 1px 1px #ffe4b6,0 1px 0 #ffbd7c88;
+}
+html[data-theme] .panels.accent-profile .profile-dossier .mounting-bolt:before{background:#6d3519;box-shadow:0 1px 0 #ffd5a066}
+html[data-theme] .panels.accent-profile .profile-dossier .mounting-bolt:after{border-color:#a346192b}

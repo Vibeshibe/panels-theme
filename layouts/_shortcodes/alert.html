@@ -1,0 +1,3 @@
+{{ $icon := "" }}{{ $type := "note" }}{{ $title := "" }}
+{{ if .IsNamedParams }}{{ $icon = .Get "icon" }}{{ $type = .Get "type" | default "note" }}{{ $title = .Get "title" }}{{ else }}{{ $icon = .Get 0 }}{{ end }}
+{{ partial "callout.html" (dict "type" $type "title" $title "body" (.Page.RenderString (dict "display" "block") .Inner) "icon" $icon) }}

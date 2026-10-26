@@ -1,0 +1,44 @@
+/* Keep the reading surface comfortable inside the denser hardware framing. */
+.panels .workshop-intro p:not(.intro-note p){font-size:12px;color:#647754}
+.panels .object-copy p{font-size:10px;color:#687e58}
+.panels .field-notes p{font-size:10px;color:#71865f}
+.panels .profile-description{font-size:11px;color:#6a7e5a}
+.panels .object-copy>.workshop-label,.panels .field-notes .workshop-label{color:#81976d}
+@media(max-width:1000px){
+ .panels .workshop-intro p:not(.intro-note p){font-size:11px}
+ .panels .profile-description{font-size:10px}
+ .panels .object-copy p{font-size:10px}
+ .panels .field-notes p{font-size:9px}
+}
+@media(max-width:650px){
+ .panels .profile-sidebar{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+ .panels .profile-dossier{grid-column:1/-1;grid-row:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:17px;padding:37px 20px 24px}
+ .panels .profile-title{padding-top:3px}
+ .panels .profile-title h2{font-size:32px}
+ .panels .profile-title>.workshop-label{font-size:4px;letter-spacing:.2px}
+ .panels .profile-handle{font-size:4px;line-height:2}
+ .panels .profile-description{font-size:10px;line-height:1.9;max-width:none;margin:0;padding:0}
+ .panels .profile-status{grid-column:1/-1;font-size:4.5px;letter-spacing:.3px;margin:0;padding-top:12px;gap:6px}
+ .panels .profile-nav{grid-column:1;grid-row:2;align-self:stretch}
+ .panels .profile-nav>a{font-size:12px;padding-top:10px;padding-bottom:10px}
+ .panels .profile-people{grid-column:2;grid-row:2;padding-top:27px}
+ .panels .profile-people a>span:nth-child(2){font-size:9px}
+ .panels .profile-people small{font-size:6px}
+ .panels .profile-people>.workshop-label{font-size:4px;letter-spacing:.4px}
+ .panels .workshop-intro p:not(.intro-note p){font-size:11px}
+ .panels .object-copy p{font-size:9px;line-height:1.9}
+ .panels .field-notes p{font-size:8px}
+}
+@media(max-width:360px){
+ .panels .profile-dossier{padding-left:16px;padding-right:16px;gap:14px}
+ .panels .profile-title h2{font-size:29px}
+ .panels .profile-title>.workshop-label{font-size:3.4px;letter-spacing:.1px}
+ .panels .profile-handle{font-size:3.5px;letter-spacing:.1px}
+ .panels .profile-description{font-size:9px}
+ .panels .profile-nav>a{font-size:11px}
+ .panels .profile-people a>span:nth-child(2){font-size:8px}
+ .panels .profile-people small{font-size:5px}
+ .panels .object-copy p{font-size:8px}
+ .panels .field-notes p{font-size:8px}
+ .panels .workshop-intro p:not(.intro-note p){font-size:10px}
+}

@@ -1,0 +1,5 @@
+{{ define "main" }}
+<section class="service-panel listing-panel">{{ partial "bolts.html" . }}<div class="section-rule"><span class="workshop-label">{{ .Kind | upper }} / ARCHIVE</span><a class="rule-end" href="{{ site.Home.RelPermalink }}">BACK HOME ↗</a></div><header class="article-header"><h1>{{ .Title }}</h1>{{ with .Description }}<p class="article-description">{{ . }}</p>{{ end }}</header>{{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+{{ if eq .Section "projects" }}<div class="object-grid">{{ range .RegularPages.ByWeight }}{{ partial "project-card.html" . }}{{ end }}</div>{{ else }}<div class="entry-list">{{ range .Pages.ByDate.Reverse }}<a href="{{ .RelPermalink }}"><span class="workshop-label">{{ if .IsPage }}{{ .Date.Format "02 JAN 2006" }}{{ else }}COLLECTION{{ end }}</span><h2>{{ .Title }}</h2><p>{{ .Description | default (.Summary | plainify | truncate 170) }}</p><span class="entry-arrow">↗</span></a>{{ else }}<p class="empty-state">This shelf is ready for its first entry.</p>{{ end }}</div>{{ end }}
+</section>
+{{ end }}

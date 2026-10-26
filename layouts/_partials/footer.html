@@ -1,0 +1,2 @@
+<footer class="workshop-footer"><span class="workshop-label">{{ site.Title }} / PERSONAL SPACE, SHARED.</span><span>{{ hugo.Data.panels.footer }}</span><a href="#top">BACK TO THE TOP ↑</a></footer>
+{{ with site.Menus.footer }}<nav class="credit-links" aria-label="Credits">{{ range . }}<a href="{{ .URL }}" target="_blank" rel="noopener noreferrer">{{ .Name }}</a>{{ end }}</nav>{{ end }}

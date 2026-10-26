@@ -1,0 +1,21 @@
+/* A continuous outer chassis: the picture is an inset, not a separate plate. */
+.panels .banner-assembly{background:linear-gradient(145deg,#ecf0e3,#c7d2bb);clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);box-shadow:inset 0 2px 0 #f7fff0,inset 2px 0 0 #f7fff0,inset -2px 0 0 #a6b695,inset 0 -3px 0 #98aa86;filter:drop-shadow(0 4px 1px #69785c30)}
+.panels .l-frame{clip-path:none;inset:0;background:repeating-linear-gradient(0deg,#f5fff308 0,#f5fff308 1px,transparent 1px,transparent 3px),linear-gradient(150deg,#f0f1e6,#dce2d0 45%,#c3ceb7);box-shadow:inset 0 2px 0 #f8fff0,inset 2px 0 0 #f8fff0,inset 0 -3px 0 #9eae8b}
+.panels .l-frame:after{inset:5px;border:1px solid #93a67f55;clip-path:polygon(7px 0,calc(100% - 7px) 0,100% 7px,100% calc(100% - 7px),calc(100% - 7px) 100%,0 100%,0 7px)}
+.panels .identity-panel{border-right:0;padding-top:22px}
+.panels .banner-display{padding:8px 8px 0 0}
+.panels .display-bezel{clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,0 100%);padding:5px;background:linear-gradient(145deg,#a1af91,#c9d4bc);border:1px solid #91a27e;box-shadow:inset 0 1px 0 #e9f0e0,inset 1px 0 0 #e9f0e0,inset 0 -1px 0 #758d63}
+.panels .bottom-rail{border-top:0;background:transparent;box-shadow:inset 0 1px 0 #e9f0dd,inset 0 -4px 0 #a7b998}
+.panels .identity-panel>.bolt-c,.panels .identity-panel>.bolt-d{bottom:10px}
+.panels .mode-selector{display:flex;gap:3px;align-items:center;margin-left:auto;padding:3px;background:#c7d1ba;border:1px solid #a5b696;box-shadow:inset 0 1px 2px #7c90672b,0 1px 0 #f0f7e9;clip-path:polygon(0 0,calc(100% - 5px) 0,100% 5px,100% 100%,0 100%)}
+.panels .mode-selector>button{display:flex;align-items:center;justify-content:center;gap:7px;min-height:32px;padding:0 11px;font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.6px;color:#718763;background:transparent;border:1px solid transparent}
+.panels .mode-selector>button[aria-pressed="true"]{background:#edf2e5;color:#3f5732;border-color:#abbc9a;box-shadow:inset 0 1px 0 #fff,0 1px 2px #6b80532b}
+.panels .mode-selector>button:hover{color:#3c542e;background:#dce5d0}
+.panels .mode-selector>button:focus-visible{outline:2px solid #c98447;outline-offset:0}
+.finish-swatch{display:block;width:7px;height:7px;border:1px solid #8ea27a}
+.light-finish{background:linear-gradient(135deg,#f1f3e7,#c5d1b5)}
+.dark-finish{background:linear-gradient(135deg,#5a6552,#222a22);border-color:#6d7e5c}
+.panels .header-index{margin-left:0}
+@media(max-width:800px){.panels .header-index{display:none}.panels .mode-selector>button{min-height:30px;padding:0 10px;font-size:6px}.panels .workshop-header{gap:15px}}
+@media(max-width:650px){.panels .banner-assembly{clip-path:polygon(8px 0,calc(100% - 8px) 0,100% 8px,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px)}.panels .identity-panel{padding-top:18px}.panels .banner-display{padding:6px 6px 0 0}.panels .display-bezel{padding:4px}.panels .mode-selector{padding:3px;gap:2px}.panels .mode-selector>button{padding:0 8px;min-height:29px;font-size:6px;gap:5px;letter-spacing:.3px}.finish-swatch{width:6px;height:6px}.panels .workshop-header{gap:10px}}
+@media(max-width:360px){.panels .mode-selector>button{padding:0 7px;font-size:5.5px;gap:4px}.panels .workshop-wordmark{font-size:24px}.panels .registration-mark{margin-right:6px}.panels .display-bezel{padding:3px}}

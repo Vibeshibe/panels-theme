@@ -1,0 +1,9 @@
+{{ $profile := hugo.Data.panels.profile }}
+<aside class="profile-sidebar" aria-label="Profile and navigation">
+ <div class="profile-dossier">{{ partial "bolts.html" . }}<span class="panel-tab">{{ $profile.label | default "ABOUT THIS SPACE" }}</span><div class="profile-title"><span class="workshop-label">{{ $profile.eyebrow }}</span><h2>{{ $profile.title | default site.Title }}</h2><span class="profile-handle">{{ $profile.handle }}</span></div><p class="profile-description">{{ $profile.bio }}</p><div class="profile-status"><span></span>{{ $profile.status }}</div></div>
+ <nav class="profile-nav" aria-label="Page sections">
+ {{ range slice (dict "id" "about" "n" "01" "label" "Our little world") (dict "id" "projects" "n" "02" "label" "Things we make") (dict "id" "journal" "n" "03" "label" "Field notes") (dict "id" "gallery" "n" "04" "label" "Photo archive") }}<a href="{{ site.Home.RelPermalink }}#{{ .id }}" data-section="{{ .id }}"><span>{{ .n }}</span>{{ .label }}<b>↗</b></a>{{ end }}
+ </nav>
+ {{ with $profile.people }}<div class="profile-people">{{ partial "bolts.html" $ }}<span class="workshop-label">{{ $profile.peopleLabel | default "OTHER LITTLE CORNERS" }}</span>{{ range $i,$person := . }}<a href="{{ $person.url }}" target="_blank" rel="noopener noreferrer"><i class="person-swatch {{ if eq $i 0 }}peach-swatch{{ else }}sage-swatch{{ end }}">{{ if $person.image }}{{ $portrait := partial "resolve-image.html" (dict "page" site.Home "path" $person.image) }}<img src="{{ $portrait.src }}" alt="" width="32" height="32">{{ else }}{{ $person.initial }}{{ end }}</i><span>{{ $person.name }}<small>{{ $person.description | default "Personal space" }}</small></span><span>↗</span></a>{{ end }}</div>{{ end }}
+ <div class="sidebar-colophon"><div class="barcode" aria-hidden="true"></div><span>SELF-HOSTED. SELF-MADE.<br>BUILT SLOWLY. KEPT TOGETHER.</span><span class="colophon-cross">+</span></div>
+</aside>

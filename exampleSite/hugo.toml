@@ -1,0 +1,22 @@
+baseURL = 'https://example.org/'
+title = 'Panels'
+theme = 'panels-theme'
+themesDir = '../..'
+defaultContentLanguage = 'en'
+enableRobotsTXT = true
+summaryLength = 30
+[languages.en]
+locale = 'en-US'
+label = 'English'
+[taxonomies]
+tag = 'tags'
+[markup.goldmark.renderer]
+unsafe = true
+[markup.highlight]
+noClasses = true
+style = 'monokai'
+[markup.tableOfContents]
+startLevel = 2
+endLevel = 3
+[outputs]
+home = ['HTML', 'RSS']

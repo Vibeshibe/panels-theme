@@ -1,0 +1,20 @@
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#d9dcd2">
+<title>{{ if not .IsHome }}{{ .Title }} · {{ end }}{{ site.Title }}</title>
+<meta name="description" content="{{ .Description | default site.Params.description | default site.Title }}">
+<link rel="canonical" href="{{ .Permalink }}">
+{{ with .OutputFormats.Get "RSS" }}<link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .RelPermalink }}">{{ end }}
+{{ with site.Params.favicon }}<link rel="icon" href="{{ . | relURL }}">{{ else }}{{ with resources.Get "images/mark.svg" | fingerprint }}<link rel="icon" type="image/svg+xml" href="{{ .RelPermalink }}">{{ end }}{{ end }}
+{{ $theme := resources.Get "js/theme.js" | minify | fingerprint }}
+<script src="{{ $theme.RelPermalink }}" integrity="{{ $theme.Data.Integrity }}"></script>
+{{ $styles := slice "css/reset.css" "css/foundation.css" "css/panels.css" "css/readability.css" "css/chassis.css" "css/dark.css" "css/accent.css" "css/content.css" }}
+{{ $resources := slice }}{{ range $styles }}{{ $resources = $resources | append (resources.Get .) }}{{ end }}
+{{ $css := $resources | resources.Concat "css/panels.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+<style>
+{{ range slice (dict "file" "manrope.ttf" "family" "Manrope" "weight" "400 800") (dict "file" "dm-mono.ttf" "family" "DM Mono" "weight" "400") (dict "file" "barlow-condensed-500.ttf" "family" "Barlow Condensed" "weight" "500") (dict "file" "barlow-condensed-600.ttf" "family" "Barlow Condensed" "weight" "600") }}
+{{ $font := resources.Get (printf "fonts/%s" .file) | fingerprint }}
+@font-face{font-family:'{{ .family }}';font-style:normal;font-weight:{{ .weight }};font-display:swap;src:url('{{ $font.RelPermalink }}') format('truetype')}
+{{ end }}
+</style>
+<meta property="og:title" content="{{ .Title | default site.Title }}"><meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}"><meta property="og:url" content="{{ .Permalink }}">

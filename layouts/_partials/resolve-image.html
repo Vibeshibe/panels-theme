@@ -1,0 +1,18 @@
+{{ $path := .path | default "" }}
+{{ $page := .page }}
+{{ $out := dict "src" "" "width" 0 "height" 0 }}
+{{ if $path }}
+ {{ if or (strings.HasPrefix $path "http://") (strings.HasPrefix $path "https://") }}
+  {{ $out = dict "src" $path "width" 0 "height" 0 }}
+ {{ else }}
+  {{ $image := false }}
+  {{ with $page }}{{ $image = .Resources.GetMatch $path }}{{ end }}
+  {{ if not $image }}{{ $image = resources.Get $path }}{{ end }}
+  {{ if $image }}
+   {{ $width := 0 }}{{ $height := 0 }}
+   {{ if and (eq $image.ResourceType "image") (ne $image.MediaType.SubType "svg") }}{{ $width = $image.Width }}{{ $height = $image.Height }}{{ end }}
+   {{ $out = dict "src" $image.RelPermalink "width" $width "height" $height }}
+  {{ else }}{{ $out = dict "src" ($path | relURL) "width" 0 "height" 0 }}{{ end }}
+ {{ end }}
+{{ end }}
+{{ return $out }}

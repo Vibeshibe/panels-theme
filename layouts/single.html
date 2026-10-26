@@ -1,0 +1,10 @@
+{{ define "main" }}
+<article class="service-panel article-panel">{{ partial "bolts.html" . }}
+ <div class="section-rule"><a class="workshop-label" href="{{ .Parent.RelPermalink }}">← {{ .Parent.Title }}</a><span class="rule-end">{{ .Section | upper }}</span></div>
+ <header class="article-header"><p class="article-kicker">{{ if .Draft }}DRAFT / {{ end }}{{ .Date.Format "02 JAN 2006" }}{{ with .Params.author }} / {{ . }}{{ end }} / {{ .ReadingTime }} MIN READ</p><h1>{{ .Title }}</h1>{{ with .Description }}<p class="article-description">{{ . }}</p>{{ end }}{{ with .GetTerms "tags" }}<nav class="article-tags" aria-label="Tags">{{ range . }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}</nav>{{ end }}</header>
+ {{ if .Params.toc }}<details class="article-toc"><summary>On this page</summary>{{ .TableOfContents }}</details>{{ end }}
+ <div class="prose">{{ .Content }}</div>
+ {{ with .Params.projectURL }}<a class="project-visit" href="{{ . }}" target="_blank" rel="noopener noreferrer">Visit the project ↗</a>{{ end }}
+ <nav class="article-pagination" aria-label="Other articles">{{ with .PrevInSection }}<a href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}{{ with .NextInSection }}<a href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}</nav>
+</article>
+{{ end }}

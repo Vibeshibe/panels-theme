@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale }}">
+<head>{{ partial "head.html" . }}</head>
+<body id="top" class="industrial panels{{ if hugo.Data.panels.profile.accent }} accent-profile{{ end }}">
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="workshop-shell">
+ {{ partial "header.html" . }}
+ {{ partial "assembly.html" . }}
+ <div class="workshop-body">
+  {{ partial "sidebar.html" . }}
+  <main id="main" class="workshop-main">
+   <div class="main-index"><span>{{ site.Title }}</span><span>{{ hugo.Data.panels.hero.eyebrow }}</span></div>
+   {{ block "main" . }}{{ end }}
+  </main>
+ </div>
+ {{ partial "footer.html" . }}
+</div>
+{{ partial "lightbox.html" . }}
+{{ $app := resources.Get "js/panels.js" | minify | fingerprint }}
+<script src="{{ $app.RelPermalink }}" integrity="{{ $app.Data.Integrity }}" defer></script>
+</body></html>

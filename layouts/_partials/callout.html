@@ -1,0 +1,3 @@
+{{ $type := .type | default "note" | lower }}
+{{ if not (in (slice "note" "tip" "important" "warning" "caution") $type) }}{{ $type = "note" }}{{ end }}
+<aside class="content-callout callout-{{ $type }}"{{ with .icon }} data-icon="{{ . }}"{{ end }}><div class="callout-title"><span aria-hidden="true">{{ if in (slice "warning" "caution") $type }}!{{ else }}+{{ end }}</span>{{ .title | default ($type | humanize) }}</div><div class="callout-body">{{ .body }}</div></aside>

@@ -1,0 +1,3 @@
+{{ $image := partial "resolve-image.html" (dict "page" .Page "path" (.Get "src")) }}
+{{ if not $image.src }}{{ errorf "figure shortcode requires src at %s" .Position }}{{ end }}
+<figure class="content-figure{{ with .Get "figureClass" }} {{ . }}{{ end }}"><a href="{{ $image.src }}"{{ if not (.Get "nozoom") }} data-lightbox data-caption="{{ .Get "caption" | plainify }}"{{ end }}><img src="{{ $image.src }}" alt="{{ .Get "alt" | default "" }}"{{ if $image.width }} width="{{ $image.width }}" height="{{ $image.height }}"{{ end }} loading="lazy" decoding="async"></a>{{ with .Get "caption" }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}</figure>
