@@ -64,6 +64,8 @@ hero:
 
 The paths above refer to Hugo assets or, where appropriate, page resources. Keep a light and dark banner of the same dimensions for a stable layout. Set `profile.accent: false` to use the neutral profile material instead of the orange plate.
 
+For illustration-led banners, set `hero.presentation: artwork`. This keeps the image's colors, moves the caption to the lower right, and uses a bottom gradient for readable text. Optional `imagePosition`/`darkImagePosition` and `mobileImagePosition`/`darkMobileImagePosition` values use CSS object-position syntax such as `50% 35%`. `darkAlt` supplies a separate description when the dark image depicts a different scene; it defaults to `alt`.
+
 Project front matter supports `title`, `description`, `date`, `draft`, `weight`, `category` (`offline` or `digital`), `label`, `cover`, `coverAlt`, and `projectURL`. An optional `sprite` class and site-owned `spriteSheet` can supply pre-rendered project illustrations.
 
 Album front matter supports `cover` and `coverAlt`. Article front matter supports `author`, `tags`, `description`, and `toc`. Hugo handles the publication date and draft state.

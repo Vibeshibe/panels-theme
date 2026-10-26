@@ -6,3 +6,14 @@ html[data-theme="dark"] .prose{color:#b8bfb1}html[data-theme="dark"] .article-he
 @media(max-width:360px){.identity-panel .logo-cassette>a>img{width:57px;height:57px}.identity-panel .logo-cassette>a{min-height:57px}.article-header h1{font-size:32px}.prose{font-size:12px}.content-gallery{grid-template-columns:1fr}.content-gallery img{height:auto}.lightbox-footer{gap:12px}.lightbox-footer h2{font-size:20px}.panels .rail-wordmark{font-size:21px}}
 
 .person-swatch{overflow:hidden}.person-swatch>img{width:100%;height:100%;object-fit:cover}
+
+/* Artwork banners retain their colors and keep the caption below the faces. */
+html[data-theme] .panels .banner-artwork>#panel-banner-image{filter:none;object-position:var(--banner-position,50% 50%)}
+html[data-theme] .panels .banner-artwork:before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(transparent 48%,#080e087d)}
+html[data-theme] .panels .banner-artwork .display-caption{left:auto;right:24px;top:auto;bottom:22px;text-align:right}
+html[data-theme] .panels .banner-artwork .banner-heading{max-width:none;font-size:38px;margin-top:8px;color:#fff7ea;text-shadow:0 1px 5px #0008}
+html[data-theme] .panels .banner-artwork .display-eyebrow{color:#fff7ea}
+.panels .banner-artwork .display-caption-bottom{display:none}
+@media(max-width:650px){html[data-theme] .panels .banner-artwork>#panel-banner-image{object-position:var(--banner-mobile-position,50% 50%)}html[data-theme] .panels .banner-artwork .display-caption{right:12px;bottom:12px;left:12px}html[data-theme] .panels .banner-artwork .banner-heading{font-size:27px;max-width:180px;margin-left:auto}html[data-theme] .panels .banner-artwork .display-eyebrow{display:none}}
+
+@media(min-width:651px){.panels .artwork-assembly{grid-template-rows:340px var(--rail)}}

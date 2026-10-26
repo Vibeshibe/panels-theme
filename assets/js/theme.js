@@ -18,6 +18,13 @@
     if (banner) {
       const source = theme === 'dark' ? banner.dataset.darkSrc : banner.dataset.lightSrc;
       if (banner.getAttribute('src') !== source) banner.src = source;
+      const prefix = theme === 'dark' ? 'dark' : 'light';
+      const alt = banner.dataset[`${prefix}Alt`];
+      if (alt !== undefined) banner.alt = alt;
+      const position = banner.dataset[`${prefix}Position`];
+      const mobilePosition = banner.dataset[`${prefix}MobilePosition`];
+      if (position) banner.style.setProperty('--banner-position', position);
+      if (mobilePosition) banner.style.setProperty('--banner-mobile-position', mobilePosition);
     }
     document.querySelectorAll('[data-theme-choice]').forEach(button => {
       button.setAttribute('aria-pressed', String(button.dataset.themeChoice === theme));
