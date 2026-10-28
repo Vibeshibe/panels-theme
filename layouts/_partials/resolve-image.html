@@ -11,6 +11,7 @@
   {{ if $image }}
    {{ $width := 0 }}{{ $height := 0 }}
    {{ if and (eq $image.ResourceType "image") (ne $image.MediaType.SubType "svg") }}{{ $width = $image.Width }}{{ $height = $image.Height }}{{ end }}
+   {{ if $.fingerprint }}{{ $image = $image | fingerprint }}{{ end }}
    {{ $out = dict "src" $image.RelPermalink "width" $width "height" $height }}
   {{ else }}{{ $out = dict "src" ($path | relURL) "width" 0 "height" 0 }}{{ end }}
  {{ end }}
