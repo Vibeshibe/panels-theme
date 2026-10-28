@@ -67,7 +67,7 @@ html[data-theme="dark"] .panels .object-link { color:#d4dfc6; }
 .panels .plate-branding { min-height:52px; padding-top:8px; }
 .panels .plate-brand { font-size:32px; }
 .panels .display-eyebrow, html[data-theme] .panels .banner-artwork .display-eyebrow { font-size:12px; line-height:1.5; letter-spacing:.3px; }
-html[data-theme] .panels .banner-artwork .display-eyebrow { display:inline-block; padding:3px 7px; background:#14210fe6; color:#fff8ed; }
+html[data-theme] .panels .banner-artwork .display-eyebrow { display:inline-block; padding:5px 10px; border-radius:3px; background:rgb(20 24 22 / 70%); color:#fff8ed; text-shadow:0 1px 2px #0005; }
 .panels .display-caption-bottom { font-size:12px; line-height:1.5; letter-spacing:.3px; max-width:55%; }
 .panels .lcd-topline, .panels .lcd-bottomline { font-size:12px; line-height:1.5; letter-spacing:.1px; }
 .panels .lcd-topline { min-height:28px; }
