@@ -42,7 +42,7 @@ data/panels.yaml                   # profile, banner, labels and links
 
 Your site's `data/panels.yaml` overrides the theme defaults. Personal artwork, biographies, links, and posts belong in the consuming site. No shibabox identity or commissioned artwork is bundled with this theme.
 
-The `profile` block edits the sidebar card (`label`, `eyebrow`, `title`, `handle`, `bio`, `status`, `accent`), banner `logo`, and `brand` wordmark beneath the logo (defaults to the site title). The `intro.label` field edits the first panel's small section label; `intro.title` edits its heading. Homepage paragraphs come from `content/_index.md`.
+The `profile` block edits the sidebar card (`label`, `eyebrow`, `title`, `handle`, `bio`, `status`, `accent`), banner `logo`, and `brand` wordmark beneath the logo (defaults to the site title). The `intro.label` field edits the first panel's small section label; `intro.title` edits its heading. Homepage paragraphs come from `content/_index.md`. The gold plaque uses `intro.noteLabel` for its small heading, `intro.note` for the list of main lines, and `intro.noteCaption` for the bottom caption. The heading and caption retain the original text when omitted; the decorative arrow is added by the theme.
 
 ### Console and quick links
 
