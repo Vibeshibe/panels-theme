@@ -6,11 +6,10 @@
 <div class="workshop-shell">
  {{ partial "assembly.html" . }}
  <div class="workshop-body">
-  {{ partial "sidebar.html" . }}
   <main id="main" class="workshop-main">
-   <div class="main-index"><span>{{ site.Title }}</span><span>{{ hugo.Data.panels.hero.eyebrow }}</span></div>
    {{ block "main" . }}{{ end }}
   </main>
+  {{ partial "sidebar.html" . }}
  </div>
  {{ partial "footer.html" . }}
 </div>
