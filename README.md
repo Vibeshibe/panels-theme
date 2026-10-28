@@ -44,7 +44,7 @@ Your site's `data/panels.yaml` overrides the theme defaults. Personal artwork, b
 
 On desktop, sidebar cards align with the first content panel. On phones, the main content comes before the sidebar cards. A single project fills its row; multiple projects use the responsive card grid.
 
-The `profile` block edits the sidebar card (`label`, `eyebrow`, `title`, `handle`, `bio`, `status`, `accent`), banner `logo`, and `brand` wordmark beneath the logo (defaults to the site title). The `intro.label` field edits the first panel's small section label; `intro.title` edits its heading. Homepage paragraphs come from `content/_index.md`. The gold plaque uses `intro.noteLabel` for its small heading, `intro.note` for the list of main lines, and `intro.noteCaption` for the bottom caption. The heading and caption retain the original text when omitted; the decorative arrow is added by the theme.
+The `profile` block edits the sidebar card (`label`, `eyebrow`, `title`, `handle`, `bio`, `status`, `accent`), banner `logo`, and `brand` wordmark beneath the logo (defaults to the site title). The `intro.label` field edits the first panel's small section label; `intro.title` edits its heading. Homepage paragraphs come from `content/_index.md`. The gold plaque uses `intro.noteLabel` for its small heading, `intro.note` for the list of main lines, and `intro.noteCaption` for the bottom caption. The heading retains the original text when omitted. Set `intro.noteCaption` to an empty string (`noteCaption: ''`) to hide the caption, its divider, and its decorative arrow.
 
 ### Console and quick links
 
