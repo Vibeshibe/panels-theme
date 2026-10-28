@@ -31,7 +31,7 @@ html[data-theme="dark"] .industrial.panels { --reading-ink:#d1d8c9; --label-ink:
 html[data-theme="dark"] .panels .intro-note>.note-heading,
 html[data-theme="dark"] .panels .note-baseline { color:#e0c69f; }
 .panels .intro-note>.note-items { list-style:none; padding:0; margin:12px 0 0; font-family:'Manrope',sans-serif; font-size:14px; line-height:1.5; font-weight:400; text-transform:none; letter-spacing:normal; color:#654c30; }
-.panels .note-items>li { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:baseline; gap:10px; padding:7px 0; overflow-wrap:anywhere; }
+.panels .note-items>li { display:grid; grid-template-columns:auto minmax(0,1fr); align-items:baseline; gap:10px; padding:7px 0; overflow-wrap:anywhere; }
 .panels .note-arrow { font-family:'DM Mono',monospace; font-size:16px; line-height:1; }
 .panels .note-items>li:first-child { padding-top:0; }
 .panels .note-items>li:last-child { padding-bottom:0; }
